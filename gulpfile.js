@@ -63,7 +63,7 @@ gulp.task('watch', () => {
 
 
 	// JS, No payload just reload
-	gulp.watch(`${config.source}/scripts/**.js`, (saved) => { 
+	gulp.watch(`${config.source}/scripts/*.js`, (saved) => { 
 		gulp.src(saved.path)
 			.pipe(connect.reload())
 	});

@@ -14,15 +14,15 @@ const stores = {};
 const store =(() => {	
 	const hasInstance = (spec) => {
 		return !!stores[spec];
-	};
-	const addInstance = (spec) => {
+	},
+	addInstance = (spec) => {
 		const { name } 		= spec;
 		stores[name] 		= spec;
 		stores[name].data 	= {};
-	};
-	const getInstance = (spec) => {
+	},
+	getInstance = (spec) => {
 		return stores[spec];
-	}
+	};
 
 	return Object.freeze({
 		hasInstance,  addInstance, getInstance
@@ -36,18 +36,18 @@ const store =(() => {
  */
 const instance = (spec_) => {
 	const name = spec_;
-	const data = {};
-	const addData = (spec) => {
+	const data = {},
+	addData = (spec) => {
 		const { key, payload } = spec;
         store.getInstance(name).data[key] = payload;
-	}
-	const removeData = (spec) => {
+	},
+	removeData = (spec) => {
 		const { key, payload } = spec;
 		delete store.getInstance(name).data[key][payload];
-	}
-	const getData = (key) => {
+	},
+	getData = (key) => {
 		return store.getInstance(name).data[key];
-	}
+	};
 
 	return Object.create({
 		name, addData, removeData, getData
@@ -59,9 +59,9 @@ const instance = (spec_) => {
  * @param {*} spec 
  */
 export const singleton = (spec) => {
-	const hasInstance = store.hasInstance(spec);
+	const hasInstance = store.hasInstance(spec),
 	
-	const singletonCreation = () => {
+	singletonCreation = () => {
 		if (!hasInstance)  {
 			const current = instance(spec);
 			store.addInstance(current);

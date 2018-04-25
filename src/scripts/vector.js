@@ -1,9 +1,10 @@
 export const vector2 = (spec) => {
-	const { x, y } = spec;
-	const getArray = () => {
+	const { x, y } = spec,
+	
+	getArray = () => {
 		return [x,y];
-	};
-	const toString = ()  => {
+	},
+	toString = ()  => {
 		return `${x},${y}`;
 	};
 
