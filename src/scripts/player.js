@@ -1,12 +1,18 @@
 'use strict';
 
 import { ship } from './ship.js';
-import { state } from './state.js';
+import { state, singleton } from './state.js';
 
 export const player = (spec) => {
-	let { human, grid } =  spec;
-	const { getShips } 	= ship(spec);
-
+	let { human, grid, name } = spec;
+	const { createShips } 	= ship(spec);
+	const dataStore 		= singleton(name);
+		
+	// Init player data
+	const init = () => {
+		dataStore.addData({ key: 'grid',  payload: grid });
+		dataStore.addData({ key: 'ships', payload: createShips() });
+	};
 	const placeShip = (vector2) => {
 		// console.log(vector2);
 	};
@@ -16,14 +22,14 @@ export const player = (spec) => {
 	}
 
 	const playerStatus = () => {
-		return 
+		return undefined;
 	}
 
 	const shipsRemaining = () => {
-		return getShips();
+		return undefined;
 	};
 
-	return Object,freeze({
-		placeShip, shipsRemaining
+	return Object.freeze({
+		init, placeShip, shipsRemaining, dataStore
 	});
 }

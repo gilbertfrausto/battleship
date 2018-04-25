@@ -1,19 +1,34 @@
-'use strict';
-
 import { grid } from "./grid.js"; 
 import { player } from "./player.js";
 
 
 
 (() => {
-    const init = grid({ players: 2, spaces: 10, type: undefined });
+	// Create grids
+    const init 			= grid({ players: 2, spaces: 10, type: undefined });
+	const collection 	= init.collection();
+	
+	// Create Players
+	const player_1 = player({ 
+		human: true,
+		name: 'player_1',
+		blocks: 1,
+		ships: 5,
+		grid: collection[0] 
+	});
+	
+	const player_2 = player({ 
+		human: true,
+		name: 'player_2',
+		blocks: 1,
+		ships: 5,
+		grid: collection[1] 
+	});
+	
+	player_1.init();
 
-	const collection = init.collection();
-	
-	const player_1 = player({ human: true, blocks: 1, ships: 5, grid: collection[0] });
-	const player_2 = player({ human: true, blocks: 1, ships: 5, grid: collection[1] });
-	
-	console.log(collection, player_1.shipsRemaining());
+	console.log(player_1.dataStore.getData('ships'));
+
 })();
 
 

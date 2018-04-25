@@ -21,6 +21,5 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-zip": "^4.1.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

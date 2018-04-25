@@ -1,5 +1,3 @@
-'use strict';
-
 export const vector2 = (spec) => {
 	const { x, y } = spec;
 	const getArray = () => {

@@ -1,5 +1,3 @@
-"use strict";
-
 const gulp 			= require('gulp');
 const scss 			= require('gulp-ruby-sass'); 
 const connect 		= require('gulp-connect');
