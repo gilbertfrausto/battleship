@@ -6,31 +6,14 @@ import { player } from "./player.js";
 
 
 (() => {
-    const init = grid({
-        players: 2,
-        spaces: 10,
-        type: undefined
-    });
+    const init = grid({ players: 2, spaces: 10, type: undefined });
 
 	const collection = init.collection();
 	
-	const player_1 = player({ 
-		human: true, 
-		blocks: 1,
-		ships: 5,
-		grid: collection[0] 
-	});
+	const player_1 = player({ human: true, blocks: 1, ships: 5, grid: collection[0] });
+	const player_2 = player({ human: true, blocks: 1, ships: 5, grid: collection[1] });
 	
-	const player_2 = player({ 
-		human: true,
-		blocks: 1,
-		ships: 5,
-		grid: collection[1] 
-	});
-	
-
-	
-	console.log(collection);
+	console.log(collection, player_1.shipsRemaining());
 })();
 
 

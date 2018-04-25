@@ -1,7 +1,6 @@
-import { grid } from "./grid";
-import { SSL_OP_LEGACY_SERVER_CONNECT } from "constants";
+'use strict';
 
-const vector2 = (spec) => {
+export const vector2 = (spec) => {
 	const { x, y } = spec;
 	const getArray = () => {
 		return [x,y];

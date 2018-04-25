@@ -1,12 +1,11 @@
 'use strict';
 
-import { ships } from './ships.js';
+import { ship } from './ship.js';
 import { state } from './state.js';
 
 export const player = (spec) => {
 	let { human, grid } =  spec;
-
-	const getShips = ships(spec);
+	const { getShips } 	= ship(spec);
 
 	const placeShip = (vector2) => {
 		// console.log(vector2);
@@ -16,7 +15,15 @@ export const player = (spec) => {
 		// console.log(vector2);
 	}
 
+	const playerStatus = () => {
+		return 
+	}
+
+	const shipsRemaining = () => {
+		return getShips();
+	};
+
 	return Object,freeze({
-		getShips, placeShip
+		placeShip, shipsRemaining
 	});
 }

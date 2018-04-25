@@ -1,9 +1,10 @@
 'use strict';
+
 import { vector2 } from './vector.js';
 
-export const ships = (spec) => {
-	let { blocks, amount } = specs;
-
+export const ship = (spec) => {
+	let { blocks, amount } 	= spec;
+	// let allShips = createShips();
 	const status = (shipObject) => {
 		return shipObject.alive;
 	};
@@ -23,7 +24,10 @@ export const ships = (spec) => {
 		return collection;
 	};
 
+	const getShips = () => {
+		return createShips();
+	};
 	return Object.freeze({
-		createShips
+		getShips
 	})
 };
