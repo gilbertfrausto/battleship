@@ -1,0 +1,1 @@
+{"version":3,"mappings":"AAAA,KAAM;EACL,KAAK,EAAE,GAAG","sources":["main.scss"],"names":[],"file":"main.css","sourceRoot":"source","sourcesContent":[".copy {\n\tcolor: red;\n}"]}
