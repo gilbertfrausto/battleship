@@ -1,55 +1,51 @@
 export const dom = (element) => {
-	const selector = (element.contains('#')) ? 'id' : 'class',
+	const selectorType 	= (element.contains('#')) ? 'id' : 'class';
+	const selector 		= (selectorType === 'id') 
+		? element.split('#')[`1`] 
+		: element.split('.')[`1`];
+	const el 			= (selectorType === 'id') 
+		? document.getElementById(element)
+		: document.getElementsByClassName(element),
+	
 	addClass = (className) => {
 		if (selector === 'id') {
-			const el = document.getElementById(element);
 			el.classList.add(className);
 		} else {
-			const el = document.getElementsByClassName(element);
 			for (const x of el) {
 				x.classList.add(className);
 			}
 		}
 	},
 	removeClass = (className) => {
-		if (selector === 'id') {
-			const el = document.getElementById(element);
+		if (selector === 'id') {			
 			el.classList.remove(className);
-		} else {
-			const el = document.getElementsByClassName(element);
+		} else {	
 			for (const x of el) {
 				x.classList.remove(className);
 			}
 		}
 	},
-	toggleClass = () => {
-		// * @TODO
+	toggleClass = (className) => {
+		if (el.classList.includes(className)) {
+			el.classList.remove(className);
+		} else {
+			el.classList.add(className);
+		}
 	},
-	hasClass = () => {
-		// * @TODO
+	hasClass = (className) => {
+		return el.classList.includes(className);
 	},
 	html = (markUp) => {
 		if (selector === 'id') {
-			const el = document.getElementById(element);
 			el.innerHTML = markUp;
 		} else {
-			const el = document.getElementsByClassName(element);
 			for (const x of el) {
 				x.innerHTML = markUp;
 			}
 		}
 	},
 	attr = (att) => {
-		let data = undefined;
-		if (selector === 'id') {
-			const el 	= document.getElementById(element);
-			data 		= el.getAttribute(att);
-		} else {
-			const el 	= document.getElementsByClassName(element);
-			data 		= el[0].getAttribute(att);
-		}
-
-		return data;
+		return (selector === 'id') ? el.getAttribute(att) : el[0].getAttribute(att);;
 	};
 
 	return Object.freeze({
