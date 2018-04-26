@@ -10,10 +10,10 @@ const letters = [
  * @param {*} spec 
  */
 const generate 	= (obj) => { 
-	const { spaces, players } = obj;
+	const { spaces, players } = obj,
 	
 	// Create grid structure
-	const gridStruct = () => {
+	gridStruct = () => {
 		return letters.reduce((all, item, index) => {
 			if (index < spaces) {
 				all[item] 			= [];
@@ -21,10 +21,10 @@ const generate 	= (obj) => {
 			}
 			return all;
 		}, {});
-	};
+	},
 
 	// Add objects to collections array, Based on number of players.
-	const collection = () => {
+	collection = () => {
 		let playerGrids = [];
 
 		for(let i = 0; i <= players - 1; i++ ) {

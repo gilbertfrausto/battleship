@@ -11,7 +11,7 @@ const stores = {};
 /**
  * Store class that allows you to interact with the store and check instance status 
  */
-const store =(() => {	
+const store = (() => {	
 	const hasInstance = (spec) => {
 		return !!stores[spec];
 	},

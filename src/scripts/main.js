@@ -2,7 +2,6 @@ import { grid } from "./grid.js";
 import { player } from "./player.js";
 
 
-
 (() => {
 	// Create grids
     const init 			= grid({ players: 2, spaces: 10, type: undefined });
