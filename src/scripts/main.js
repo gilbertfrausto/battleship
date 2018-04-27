@@ -1,5 +1,6 @@
 import { grid } from "./grid.js"; 
 import { player } from "./player.js";
+import { $ } from "./utility.js";
 
 
 (() => {
@@ -25,6 +26,7 @@ import { player } from "./player.js";
 	});
 	
 	player_1.init();
+
 
 	console.log(player_1.dataStore.getData('ships'));
 

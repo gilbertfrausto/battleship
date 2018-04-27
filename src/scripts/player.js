@@ -4,9 +4,9 @@ import { ship } from './ship.js';
 import { state, singleton } from './state.js';
 
 export const player = (spec) => {
-	let { human, grid, name } = spec;
-	const { createShips } 	= ship(spec);
-	const dataStore 		= singleton(name),
+	let { human, grid, name } 	= spec;
+	const { createShips } 		= ship(spec);
+	const dataStore 			= singleton(name),
 		
 	// Init player data
 	init = () => {
