@@ -25,10 +25,16 @@ import { $ } from "./utility.js";
 		grid: collection[1] 
 	});
 	
-	player_1.init();
+	player_1.init(); // default settings for player store
+	
+	init.construct([player_1, player_2]); // pass players and render grid
+	
 
-
-	console.log(player_1.dataStore.getData('ships'));
+	// ! @Test
+	$('#header').click((event) =>{
+		console.log('testing');
+		console.log(event.target);
+	});
 
 })();
 

@@ -24,9 +24,12 @@ export const player = (spec) => {
 	},
 	shipsRemaining = () => {
 		return undefined;
+	},
+	getName = () => {
+		return name;
 	};
 
 	return Object.freeze({
-		init, placeShip, shipsRemaining, dataStore
+		init, placeShip, shipsRemaining, dataStore, getName
 	});
 }

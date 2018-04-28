@@ -4,10 +4,22 @@ const letters = [
 	's','t','u','v','w','x','y','z'
 ];
 
+/**
+ * Create player grid templates and return HTMl string
+ */
+const templates = () => {
+	let start 	= '<ul>';
+	let end 	= '</ul>';
+	const listItems = () => {
+	
+	};
+
+	return `${start}${listItems()}${end}`;
+}
 
 /**
  * create grids based on players and spaces
- * @param {*} spec 
+ * @param {Object} obj 
  */
 const generate 	= (obj) => { 
 	const { spaces, players } = obj,
@@ -46,13 +58,18 @@ const generate 	= (obj) => {
 export const grid = (spec) => {
 
 	const { players, type } = spec;
-	const { collection }  	= generate(spec);
+	const { collection }  	= generate(spec),
 
-	const log = () => {
-		// console.log(generateGrid)
-	};
+	log = () => {},
+	construct = (players) => {
+		for (let x of players) {
+			const id 		= x.getName();
+			const markUp 	= template(x);
+			$(`#${id}`).html(markUp);
+		}
+	}
 
 	return Object.freeze({
-		collection, log
+		collection, construct
 	});
 };

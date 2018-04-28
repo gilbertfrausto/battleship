@@ -2,10 +2,11 @@ NodeList.prototype[Symbol.iterator] 		= Array.prototype[Symbol.iterator];
 HTMLCollection.prototype[Symbol.iterator] 	= Array.prototype[Symbol.iterator];
 
 export const $ = (element) => {
+	element 			= element.trim();
 	const selectorType 	= (element.includes('#')) ? 'id' : 'class';
 	const selector 		= (selectorType === 'id') 
-		? element.split('#')[`1`] 
-		: element.split('.')[`1`];
+		? element.replace('#', '')
+		: element.replace('.', '');
 	const el 			= (selectorType === 'id') 
 		? document.getElementById(selector)
 		: document.getElementsByClassName(selector),
@@ -49,9 +50,14 @@ export const $ = (element) => {
 	},
 	attr = (att) => {
 		return (selector === 'id') ? el.getAttribute(att) : el[0].getAttribute(att);;
+	},
+	click = (func) => {
+		el.addEventListener('click', (e) => {
+			func(e);
+		});
 	};
 
 	return Object.freeze({
-		addClass, removeClass, toggleClass, hasClass, html, attr
+		addClass, removeClass, toggleClass, hasClass, html, attr, click
 	})
 }

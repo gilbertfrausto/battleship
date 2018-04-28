@@ -23,5 +23,5 @@ export const ship = (spec) => {
 	
 	return Object.freeze({
 		createShips
-	})
+	});
 };
