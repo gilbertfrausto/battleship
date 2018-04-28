@@ -1,6 +1,6 @@
 import { grid } from "./grid.js"; 
 import { player } from "./player.js";
-import { $ } from "./utility.js";
+import { GQ as $ } from "./utility.js";
 
 
 (() => {
@@ -22,10 +22,11 @@ import { $ } from "./utility.js";
 		name: 'player_2',
 		blocks: 1,
 		ships: 5,
-		grid: collection[1] 
+		grid: collection[1]
 	});
 	
 	player_1.init(); // default settings for player store
+	player_2.init();
 	
 	init.construct([player_1, player_2]); // pass players and render grid
 	

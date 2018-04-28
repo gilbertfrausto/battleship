@@ -1,7 +1,7 @@
 NodeList.prototype[Symbol.iterator] 		= Array.prototype[Symbol.iterator];
 HTMLCollection.prototype[Symbol.iterator] 	= Array.prototype[Symbol.iterator];
 
-export const $ = (element) => {
+export const GQ = (element) => {
 	element 			= element.trim();
 	const selectorType 	= (element.includes('#')) ? 'id' : 'class';
 	const selector 		= (selectorType === 'id') 

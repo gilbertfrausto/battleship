@@ -1,3 +1,5 @@
+import { GQ as $ } from "./utility.js";
+
 const letters = [
 	'a','b','c','d','e','f','g','h','i',
 	'j','k','l','m','n','o','p','q','r',
@@ -7,13 +9,33 @@ const letters = [
 /**
  * Create player grid templates and return HTMl string
  */
-const templates = () => {
-	let start 	= '<ul>';
-	let end 	= '</ul>';
-	const listItems = () => {
+const templates = (data) => {
+	let start 			= '<ul>';
+	let end 			= '</ul>';
+	const playerData	= data.dataStore.getData('grid');
 	
+	const listItems = () => {
+		let temp = ``;
+		
+		Object.keys(playerData).forEach((el, index) => {
+			let concat 	= '';
+			
+			for (let i = 0; i < playerData[el].length; i++) {
+				if (i === 0) {
+					concat = `<li><span><input type="button" data="${i}" /></span>`;
+				} else if (i === playerData[el].length - 1) {
+					concat = `${concat}<span><input type="button" data="${i}" /></span></li>`;
+				} else {
+					concat = `${concat}<span><input type="button" data="${i}" /></span>`;
+				}
+				
+			}
+			temp = `${temp}${concat}`;
+		});
+		return temp;
 	};
 
+	console.log(playerData);
 	return `${start}${listItems()}${end}`;
 }
 
@@ -64,7 +86,9 @@ export const grid = (spec) => {
 	construct = (players) => {
 		for (let x of players) {
 			const id 		= x.getName();
-			const markUp 	= template(x);
+			const markUp 	= templates(x);
+
+			// console.log(x);
 			$(`#${id}`).html(markUp);
 		}
 	}
