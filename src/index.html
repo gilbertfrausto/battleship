@@ -7,13 +7,17 @@
         <link rel="stylesheet" href="styles/main.css" type="text/css" charset="utf-8">
     </head>
     <body>
-		<h2 id="header">Hello Wolrd</h2>
+		<div class="viewport flex-row width-100 center-center absolute">
+			<h2 id="heading-name">Battleships</h2>
+		</div>
+		
+		<h2 id="header" class="text-center">Place Ships</h2>
 
-		<div class="width-100 flex-row center-center">
-			<div class="width-50">
+		<div class="flex-row center-center width-100 z-top relative padding-tb-3x">
+			<div class="flex-row center-center width-50">
 				<ul id="player_1" class="list"></ul>
 			</div>
-			<div class="width-50">
+			<div class="flex-row center-center width-50">
 				<ul id="player_2" class="list"></ul>
 			</div>
 		</div>

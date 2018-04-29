@@ -5,7 +5,7 @@ export const vector2 = (spec) => {
 		return [x,y];
 	},
 	toString = ()  => {
-		return `${x},${y}`;
+		return `${x}${y}`;
 	};
 
 	return Object.freeze({

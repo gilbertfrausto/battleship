@@ -1,6 +1,7 @@
 import { GQ as $ } from "./utility.js";
+import { vector2 } from "./vector.js";
 
-const letters = [
+export const letters = [
 	'a','b','c','d','e','f','g','h','i',
 	'j','k','l','m','n','o','p','q','r',
 	's','t','u','v','w','x','y','z'
@@ -10,33 +11,37 @@ const letters = [
  * Create player grid templates and return HTMl string
  */
 const templates = (data) => {
-	let start 			= '<ul>';
-	let end 			= '</ul>';
-	const playerData	= data.dataStore.getData('grid');
-	
-	const listItems = () => {
+	const playerData	= data.dataStore.getData('grid'),
+	listItems = () => {
 		let temp = ``;
 		
 		Object.keys(playerData).forEach((el, index) => {
 			let concat 	= '';
 			
 			for (let i = 0; i < playerData[el].length; i++) {
+				const pos 	= vector2({ x: index, y: i});
+				const child = createElement({ element: 'span', pos: pos});
+
 				if (i === 0) {
-					concat = `<li><span><input type="button" data="${i}" /></span>`;
+					concat = `<li>${child}`;
 				} else if (i === playerData[el].length - 1) {
-					concat = `${concat}<span><input type="button" data="${i}" /></span></li>`;
+					concat = `${concat}${child}</li>`;
 				} else {
-					concat = `${concat}<span><input type="button" data="${i}" /></span>`;
+					concat = `${concat}${child}`;
 				}
-				
 			}
 			temp = `${temp}${concat}`;
 		});
 		return temp;
+	},
+	createElement = (spec) => {
+		const { element, pos } 	= spec;
+		const { x, y }			=  pos;
+		
+		return `<${element} class="ships" data-x="${x}" data-y="${y}"></${element}>`;
 	};
 
-	console.log(playerData);
-	return `${start}${listItems()}${end}`;
+	return `${listItems()}`;
 }
 
 /**
@@ -88,7 +93,6 @@ export const grid = (spec) => {
 			const id 		= x.getName();
 			const markUp 	= templates(x);
 
-			// console.log(x);
 			$(`#${id}`).html(markUp);
 		}
 	}

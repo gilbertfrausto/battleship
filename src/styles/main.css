@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Basic|Monoton");
+.viewport {
+  width: 100%;
+  height: 100%; }
+
+.z-top {
+  z-index: 100; }
+
 .padding-0 {
   padding: 0px; }
 
@@ -174,6 +182,38 @@ body {
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #2c3e50, #bdc3c7);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+
+#header {
+  font-size: 40px;
+  font-family: 'Basic'; }
+
+#heading-name {
+  font-family: 'Monoton', cursive;
+  color: #515675;
+  font-size: 80px;
+  opacity: 0.4;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff; }
+
+span {
+  width: 20px;
+  height: 30px;
+  display: inline-block;
+  padding: 5px;
+  margin: 2px;
+  cursor: pointer;
+  background-color: white;
+  transition: all .2s ease-in-out; }
+  span:hover {
+    background-color: blue; }
+  span.placed {
+    background-color: blue; }
+  span.missed {
+    background-color: gray; }
+  span.hit {
+    background-color: red; }
+
+ul li {
+  list-style-type: upper-alpha; }
 
 
 
