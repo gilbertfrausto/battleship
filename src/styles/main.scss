@@ -12,19 +12,41 @@ body {
 	background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+button {
+	cursor: pointer;
+	position: relative;
+	font-family: 'Basic';
+}
 #header {
 	font-size: 40px;
 	font-family: 'Basic';
 }
+
 #heading-name {
 	// font-family: 'Righteous', cursive;
 	font-family: 'Monoton', cursive;
 	color: $logo;
 	// font-family: 'Rammetto One', cursive;
 	font-size: 80px;
-	opacity: 0.4;
+	opacity: 0.7;
+	transition: all .2s ease-in-out;
 	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
 }
+
+.viewport {
+	&.splash {
+		#heading-name {
+			&:hover {
+				opacity: .4;
+				cursor: pointer;
+				text-shadow: 0 0 10px blueviolet, 0 0 25px #fff, 0 0 35px #fff;
+			}
+		}
+		
+	}
+}
+
 span {
 	width: 20px;
 	height: 30px;
@@ -34,7 +56,7 @@ span {
 	
 	cursor: pointer;
 	background-color: $color_active;
-	transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out; 
 	&:hover {
 		background-color: $color_set;
 	}
@@ -51,5 +73,13 @@ span {
 ul {
 	li {
 		list-style-type: upper-alpha;
+	}
+}
+
+.game {
+	opacity: 0;
+	transition: all .5s ease-in-out;
+	&.start {
+		opacity: 1;
 	}
 }

@@ -3,6 +3,7 @@ import { player } from "./player.js";
 import { GQ as $ } from "./utility.js";
 import { vector2 } from "./vector.js";
 import { gameplay } from "./gameplay.js";
+import { runTest } from "./unit_test/test.js";
 
 
 (() => {
@@ -27,22 +28,31 @@ import { gameplay } from "./gameplay.js";
 		grid: collection[1]
 	});
 	
+	// Set player states
 	player_1
 		.init()
 		.unlock()
 		.turnText('#header');// default settings for player store
 	
+	// Set player states
 	player_2
 		.init()
 		.lock();
 	
 	init.construct([player_1, player_2]); // pass players and render grid
+
+	const game = gameplay({ 
+		p1: player_1, 
+		p2: player_2,
+		header: '#header'
+	});
+
+	$('#heading-name').click((event) => {
+		game.splash();
+	});
 	
-	// Set header
-	
-	// ! @Test
 	$('#player_1').click((event) => {
-		if (player_1.canPlace()) {
+		if (player_1.canPlace() && !game.gameStarted()) {
 			if ($(event.target).hasClass('ships')){
 				const x = $(event.target).attr('data-x'); // Get the X
 				const y = $(event.target).attr('data-y'); // Get the Y
@@ -70,7 +80,7 @@ import { gameplay } from "./gameplay.js";
 	});
 
 	$('#player_2').click((event) => {
-		if (player_2.canPlace()) {
+		if (player_2.canPlace() && !game.gameStarted()) {
 			if ($(event.target).hasClass('ships')){
 				const x = $(event.target).attr('data-x'); // Get the X
 				const y = $(event.target).attr('data-y');	// Get the Y
@@ -87,18 +97,17 @@ import { gameplay } from "./gameplay.js";
 					$('#player_2').off('click'); // Remove event listener.
 
 					// Add players to gameplay class
-					gameplay({ 
-						p1: player_1, 
-						p2: player_2,
-						header: '#header'
-					}).startGame();
+					game.startGame();
 				}
 				
 			}
 		}
 	});
 	
-
+	$('#unit').click(() => {
+		runTest();
+		$('#results').html('Results in console.');
+	});
 })();
 
 

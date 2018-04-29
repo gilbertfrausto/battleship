@@ -67,11 +67,14 @@ export const player = (spec) => {
 	},
 	getName = () => {
 		return name;
+	},
+	getShips = () => {
+		return ships;
 	};
 
 	return Object.freeze({
 		init, lock, unlock, placeShip, playerStatus,
-		shipsRemaining, dataStore, getName,
+		shipsRemaining, dataStore, getName, getShips,
 		playerAttack, playerAttacked,
 		canPlace, completed, turnText
 	});

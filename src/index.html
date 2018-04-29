@@ -7,19 +7,27 @@
         <link rel="stylesheet" href="styles/main.css" type="text/css" charset="utf-8">
     </head>
     <body>
-		<div class="viewport flex-row width-100 center-center absolute">
+		<button id="unit">Run Test</button>
+		<p id="results"></p>
+		
+		<div class="viewport splash flex-row width-100 center-center">
 			<h2 id="heading-name">Battleships</h2>
 		</div>
-		
-		<h2 id="header" class="text-center">Place Ships</h2>
 
-		<div class="flex-row center-center width-100 z-top relative padding-tb-3x">
-			<div class="flex-row center-center width-50">
-				<ul id="player_1" class="list"></ul>
+		<div class="game flex-column center-center width-100 z-top relative padding-tb-3x">
+			<div class="width-100">
+				<h2 id="header" class="text-center">Place Ships</h2>
 			</div>
-			<div class="flex-row center-center width-50">
-				<ul id="player_2" class="list"></ul>
+
+			<div class="width-100 flex-row center-center">
+				<div class="flex-row center-center width-50">
+					<ul id="player_1" class="list"></ul>
+				</div>
+				<div class="flex-row center-center width-50">
+					<ul id="player_2" class="list"></ul>
+				</div>
 			</div>
+			
 		</div>
 		<script type="module" src="scripts/main.js"></script>
 		
