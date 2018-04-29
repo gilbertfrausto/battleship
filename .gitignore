@@ -60,3 +60,20 @@ typings/
 # dotenv environment variables file
 .env
 
+.firebaserc
+battleships
+database.rules.json
+firebase.json
+pulbic/
+public/404.html
+public/index.html
+public/scripts/gameplay.js
+public/scripts/grid.js
+public/scripts/main.js
+public/scripts/vector.js
+public/styles/main.css
+public/scripts/unit_test/test.js
+public/scripts/player.js
+public/scripts/state.js
+public/scripts/utility.js
+public/scripts/ship.js
