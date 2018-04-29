@@ -58,7 +58,6 @@ import { gameplay } from "./gameplay.js";
 				if (player_1.completed()) {
 					
 					$('.ships').removeClass('placed'); // Remove placed case to hide selection
-
 					$('#player_2').off('click'); // Remove event listener.
 
 					// Free player to allow ship placement
@@ -85,7 +84,6 @@ import { gameplay } from "./gameplay.js";
 				if (player_2.completed()) {
 
 					$('.ships').removeClass('placed'); // Remove placed case to hide selection
-
 					$('#player_2').off('click'); // Remove event listener.
 
 					// Add players to gameplay class
